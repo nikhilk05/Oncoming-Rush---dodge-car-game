@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/33fa74657a.js" crossorigin="anonymous"></script>
+    <title>Car - Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="infoboard">
+      <div id="scoretable">
+        <div id="score">score: 0</div>
+        <div id="highscore">High score: 0</div>
+      </div>
+      <div id="directions">
+        <div id="arrows" class="forward"><i class="fa-solid fa-angle-up"></i></div>
+        <div id="arrows" class="left"><i class="fa-solid fa-angle-left"></i></i></div>
+        <div id="arrows" class="right"><i class="fa-solid fa-angle-right"></i></div>
+        <div id="arrows" class="backward"><i class="fa-solid fa-angle-down"></i></div>
+      </div>
+      <div id="musicbtn">music
+        <div id="musicon"><i class="fa-solid fa-volume-high"></i></div>
+        <div id="musicoff"><i class="fa-solid fa-volume-xmark"></i></div>
+      </div>
+    </div>
+    <button id="start">start</button>
+    <div id="track"></div>
+    <div id="opposite-cars">
+      <img src="./imges/opposite-car_1.png" alt="car-1" id="opposite-car1" class="o-cars" />
+      <img src="./imges/opposite-car_2.png" alt="car-2" id="opposite-car2" class="o-cars" />
+      <img src="./imges/opposite-car_3.png" alt="car-3" id="opposite-car3" class="o-cars" />
+      <img src="./imges/opposite-car_4.png" alt="car-4" id="opposite-car4" class="o-cars" />
+    </div>
+    <div id="player-car">
+      <img src="./imges/player-car.png" alt="" id="my-car" class="p-car" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
