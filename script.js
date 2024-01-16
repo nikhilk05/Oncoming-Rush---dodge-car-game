@@ -1,10 +1,11 @@
 const crashSound = new Audio("/music/crash_sound.mp3");
-const  lobbySound = new Audio("/music/lobby_sound.mp3");
-const  gameOverSound= new Audio("/music/gameover.mp3");
-const   carSound = new Audio("/music/car_sound.mp3");
+const lobbySound = new Audio("/music/lobby_sound.mp3");
+const gameOverSound = new Audio("/music/gameover.mp3");
+const carSound = new Audio("/music/car_sound.mp3");
 let playerScore = document.getElementById("score");
 let startGame = document.getElementById("start");
 let gameTrack = document.getElementById("track");
+let bgblur = document.getElementById("blur");
 let oppositeCar1 = document.getElementById("opposite-car1");
 let oppositeCar2 = document.getElementById("opposite-car2");
 let oppositeCar3 = document.getElementById("opposite-car3");
@@ -18,34 +19,36 @@ lobbySound.play();
 startGame.addEventListener("click", function () {
     lobbySound.pause();
     carSound.play();
-    scoretable.style.margin="8px 0 0 0";
-    directions.style.margin="2rem 0 0 0";
-    musicbtn.style.display="none";
+    scoretable.style.margin = "8px 0 0 0";
+    directions.style.margin = "2rem 0 0 0";
+    musicbtn.style.display = "none";
+    bgblur.style.display = "none";
     startGame.style.display = "none";
     gameTrack.style.animation = "trackanimation 25s linear infinite";
+
 
     setInterval(() => {
         randomSpot = Math.floor(Math.random() * (145 - 75 + 1) + 75)
         oppositeCar1.style.right = `${randomSpot}px`
-        
+
     }, 4500)
 
     setInterval(() => {
         randomSpot = Math.floor(Math.random() * (70 - 5 + 1) + 5)
         oppositeCar2.style.right = `${randomSpot}px`
-        
+
     }, 6000)
 
     setInterval(() => {
         randomSpot = Math.floor(Math.random() * (-5 + 70 + 1) - 70)
         oppositeCar3.style.right = `${randomSpot}px`
-        
+
     }, 5000)
 
     setInterval(() => {
         randomSpot = Math.floor(Math.random() * (-75 + 145 + 1) - 145)
         oppositeCar4.style.right = `${randomSpot}px`
-        
+
     }, 5500)
 
     oppositeCar1.style.animation = "ocar1 4.5s linear infinite"
@@ -72,7 +75,7 @@ startGame.addEventListener("click", function () {
         playerCar.style.left = `${left}vw`;
     })
 
-    window.addEventListener('keydown', e =>{
+    window.addEventListener('keydown', e => {
         moveSound.play();
         switch (e.key) {
             case "ArrowUp":
@@ -80,19 +83,19 @@ startGame.addEventListener("click", function () {
                 inputDir.x = 0;
                 inputDir.y = -1;
                 break;
-    
+
             case "ArrowDown":
                 console.log("ArrowDown");
                 inputDir.x = 0;
                 inputDir.y = 1;
                 break;
-    
+
             case "ArrowLeft":
                 console.log("ArrowLeft");
                 inputDir.x = -1;
                 inputDir.y = 0;
                 break;
-    
+
             case "ArrowRight":
                 console.log("ArrowRight");
                 inputDir.x = 1;
@@ -101,7 +104,7 @@ startGame.addEventListener("click", function () {
             default:
                 break;
         }
-    
+
     });
 
     score = 0
@@ -189,14 +192,14 @@ let hscoreval = localStorage.getItem("Highscore")
 hScore = JSON.parse(hscoreval)
 highScore.innerHTML = `High score: ${hScore}`
 
-musicon.addEventListener('click',  function() {
-    musicoff.style.display="block"
-    musicon.style.display="none"
+musicon.addEventListener('click', function () {
+    musicoff.style.display = "block"
+    musicon.style.display = "none"
     lobbySound.pause()
 })
 
-musicoff.addEventListener('click', function(){
-    musicon.style.display="block"
-    musicoff.style.display="none"
+musicoff.addEventListener('click', function () {
+    musicon.style.display = "block"
+    musicoff.style.display = "none"
     lobbySound.play()
 })
